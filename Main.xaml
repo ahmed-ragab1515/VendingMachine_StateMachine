@@ -78,11 +78,7 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="InitalValue" />
       <Variable x:TypeArguments="x:Double" Name="CurrentBalance" />
-      <Variable x:TypeArguments="x:Boolean" Name="IsValidInput">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="IsValidInput" />
       <Variable x:TypeArguments="x:Double" Name="BuyValue" />
       <Variable x:TypeArguments="x:String" Name="ContinueAnswer" />
       <Variable x:TypeArguments="x:Double" Name="InitialDoubleValue" />
@@ -271,56 +267,64 @@
               <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IsValidInput" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
             </Transition.Condition>
             <Transition.To>
-              <State x:Name="__ReferenceID1" DisplayName="Get BuyValue" sap:VirtualizedContainerService.HintSize="618,2067" sap2010:WorkflowViewState.IdRef="State_5">
+              <State x:Name="__ReferenceID1" DisplayName="Get BuyValue" sap:VirtualizedContainerService.HintSize="655,2253" sap2010:WorkflowViewState.IdRef="State_5">
                 <State.Entry>
-                  <Sequence sap:VirtualizedContainerService.HintSize="572,1652" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence sap:VirtualizedContainerService.HintSize="609,1838" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="510,292" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="[&quot;Your Current Balance is &quot;+CurrentBalance.ToString+&quot; : Select Drink&quot;]" OptionsString="Coffee ($3);Tea ($2)" Title="Please select the drink you want">
+                    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="547,292" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="[&quot;Your Current Balance is &quot;+CurrentBalance.ToString+&quot; : Select Drink&quot;]" OptionsString="Coffee ($3);Tea ($2)" Title="Please select the drink you want">
                       <ui:InputDialog.Result>
                         <OutArgument x:TypeArguments="x:String">[InputValue]</OutArgument>
                       </ui:InputDialog.Result>
                     </ui:InputDialog>
-                    <If Condition="[InputValue.Equals(&quot;Coffee ($3)&quot;)]" sap:VirtualizedContainerService.HintSize="510,522" sap2010:WorkflowViewState.IdRef="If_3">
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[InputValue]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">3</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[InputValue]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">2</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                    <If Condition="[Double.TryParse(InputValue,0)]" sap:VirtualizedContainerService.HintSize="510,647" sap2010:WorkflowViewState.IdRef="If_2">
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547,708" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[InputValue.Equals(&quot;Coffee ($3)&quot;)]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[InputValue]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">3</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[InputValue.Equals(&quot;Tea ($2)&quot;)]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[InputValue]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">2</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
+                    <If Condition="[Double.TryParse(InputValue,0)]" sap:VirtualizedContainerService.HintSize="547,647" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
                         <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
@@ -390,9 +394,7 @@
                         <x:Int32 x:Key="DestConnectionPointIndex">37</x:Int32>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Transition.Condition>
-                      <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IsValidInput and CurrentBalance &gt;= BuyValue" />
-                    </Transition.Condition>
+                    <Transition.Condition>[IsValidInput and CurrentBalance &gt;= BuyValue]</Transition.Condition>
                     <Transition.To>
                       <State x:Name="__ReferenceID3" DisplayName="Make Payment for The Drink" sap:VirtualizedContainerService.HintSize="134,62" sap2010:WorkflowViewState.IdRef="State_4">
                         <State.Entry>
@@ -447,9 +449,7 @@
                             <Transition.To>
                               <x:Reference>__ReferenceID1</x:Reference>
                             </Transition.To>
-                            <Transition.Condition>
-                              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ContinueAnswer.Equals(&quot;Yes&quot;)" />
-                            </Transition.Condition>
+                            <Transition.Condition>[ContinueAnswer.Equals("Yes")]</Transition.Condition>
                           </Transition>
                         </State.Transitions>
                       </State>
@@ -490,9 +490,7 @@
                             <Transition.To>
                               <x:Reference>__ReferenceID0</x:Reference>
                             </Transition.To>
-                            <Transition.Condition>
-                              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ContinueAnswer.Equals(&quot;No&quot;)" />
-                            </Transition.Condition>
+                            <Transition.Condition>[ContinueAnswer.Equals("No")]</Transition.Condition>
                           </Transition>
                           <Transition DisplayName="Continue" sap:VirtualizedContainerService.HintSize="450,507" sap2010:WorkflowViewState.IdRef="Transition_8">
                             <sap:WorkflowViewStateService.ViewState>
@@ -505,9 +503,7 @@
                             <Transition.To>
                               <x:Reference>__ReferenceID1</x:Reference>
                             </Transition.To>
-                            <Transition.Condition>
-                              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ContinueAnswer.Equals(&quot;Yes&quot;)" />
-                            </Transition.Condition>
+                            <Transition.Condition>[ContinueAnswer.Equals("Yes")]</Transition.Condition>
                           </Transition>
                         </State.Transitions>
                       </State>
